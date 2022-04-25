@@ -1,0 +1,12 @@
+a {
+  color: black;
+}
+
+.listitem {
+  list-style-type: none;
+}
+
+.listitem > li {
+  display: inline-block;
+  margin: 0 0.5rem;
+}

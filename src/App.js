@@ -1,10 +1,15 @@
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import Layout from "./pages/Layout";
+
 import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>App will be here</h1>
-    </div>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 };
 
