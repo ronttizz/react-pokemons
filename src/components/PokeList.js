@@ -14,30 +14,18 @@ class PokeList extends Component {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.results);
         const fetches = data.results.map((p) => {
           return fetch(p.url).then((res) => res.json());
         });
-        Promise.all(fetches).then((res) => {
-          this.setState({ pokemons: ["toni"], isLoading: false });
-          console.log(this.state.pokemons);
+        Promise.all(fetches).then((data) => {
+          this.setState({
+            pokemons: data,
+            isLoading: false,
+          });
         });
       });
   }
-
-  // componentDidMount() {
-  //   this.setState({ isLoading: true });
-  //   fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       let fetches = data.results.map((pokemon) => {
-  //         return fetch(pokemon.url).then((res) => res.json());
-  //       });
-  //       Promise.all(fetches).then((res) => {
-  //         console.log(res);
-  //         this.setState({ pokemons: res, isLoading: false });
-  //       });
-  //     });
-  // }
 
   render() {
     if (this.state.isLoading) {
@@ -48,9 +36,8 @@ class PokeList extends Component {
         <h3 className={classes.header}>List of pokemons</h3>
         <div className={classes.listing}>
           {this.state.pokemons.map((p) => {
-            <Pokecard name={p.name} key={p.name} />;
+            return <Pokecard name={p.name} key={p.name} />;
           })}
-          <Pokecard name="toni" />
         </div>
       </div>
     );

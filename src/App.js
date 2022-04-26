@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useParams } from "react-router-dom";
 
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
@@ -11,6 +11,11 @@ import Layout from "./pages/Layout";
 
 import "./App.css";
 
+const RouterWrapper = (props) => {
+  const params = useParams();
+  return <PokeSingle params={params} {...props} />;
+};
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -18,7 +23,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="pokelist" element={<PokeList />} />
-          <Route path="pokelist/:pokemonsingle" element={<PokeSingle />} />
+          <Route path="pokelist/:pokemonsingle" element={<RouterWrapper />} />
           <Route path="favlist" element={<FavList />} />
           <Route path="about" element={<About />} />
         </Route>
