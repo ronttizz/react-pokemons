@@ -1,0 +1,10 @@
+footer {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.copy {
+  font-size: 0.75rem;
+}
