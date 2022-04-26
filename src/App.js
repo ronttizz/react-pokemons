@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="pokelist" element={<PokeList />} />
-          <Route path="pokelist/pokemonsingle" element={<PokeSingle />} />
+          <Route path="pokelist/:pokemonsingle" element={<PokeSingle />} />
           <Route path="favlist" element={<FavList />} />
           <Route path="about" element={<About />} />
         </Route>
