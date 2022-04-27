@@ -3,7 +3,8 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <h1>Home will be here</h1>
+      <h3>Pokemons app</h3>
+      <p>This app shows you the 1st generation pokemons and some of their information.</p>
     </div>
   );
 };
